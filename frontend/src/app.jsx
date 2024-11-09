@@ -14,7 +14,7 @@ import StudentTest from './pages/student/StudentTest'
 import StudentUnitDetail from './pages/student/StudentUnitDetail'
 import StudentVideo from './pages/student/StudentVideo'
 import Certificates from './pages/student/Certificates'
-import Login from './pages/auth/Login'
+import Login from './pages/login'
 import PrivateRoute from './components/private/PrivateRoute'
 import Dashboard from './components/dashboard/Dashboard'
 import TeacherPrivateRoute from './components/private/TeacherPrivateRoute'
@@ -30,7 +30,7 @@ import AdminCourseList from './pages/admin/AdminCourseList'
 import TeacherStudentProfile from './pages/teacher/TeacherStudentProfile'
 import DoubtMessages from './components/chat/DoubtMessages'
 import AllDoubts from './components/chat/AllDoubts'
-import LandingPage from './components/landing/LandingPage'
+import LandingPage from './pages/landing_page'
 import AddCourse from './pages/teacher/AddCourse'
 import AdminAddStudent from './pages/admin/AdminAddStudent'
 import AdminAddTeacher from './pages/admin/AdminAddTeacher'
@@ -39,13 +39,14 @@ import { useContext } from 'react';
 import AuthContext from './context/AuthContext';
 import AddUnit from './pages/teacher/AddUnit';
 import AddTest from './pages/teacher/AddTest';
+import AllRoutes from './pages';
 
-function StopRouter(){
-  const {login} = useContext(AuthContext);
-  return(
+function StopRouter() {
+  const { login } = useContext(AuthContext);
+  return (
     <>
       {
-        login !== null&& <Outlet /> 
+        login !== null && <Outlet />
       }
     </>
   )
@@ -54,7 +55,7 @@ function StopRouter(){
 function App() {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <AuthProvider>
           <Routes>
             <Route element={<StopRouter />}>
@@ -123,7 +124,8 @@ function App() {
             </Route>
           </Routes>
         </AuthProvider>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <AllRoutes />
     </>
   )
 }

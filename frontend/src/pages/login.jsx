@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react'
-import './Login.css'
-import AuthContext from '../../context/AuthContext';
+import { useState } from 'react'
 
-function Login() {
+const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { loginUser } = useContext(AuthContext);
+    const handleLogin = () => { }
     return (
         <div className="login">
             <div className="login-left">
@@ -114,7 +112,7 @@ function Login() {
                             <label htmlFor="email">Email</label>
                             <input type="text" id="email" placeholder="Enter email..."
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={({ target: { value: v } }) => setEmail(v)}
                             />
 
                         </div>
@@ -122,16 +120,14 @@ function Login() {
                             <label htmlFor="password">Password</label>
                             <input type="password" id="password" placeholder="Enter password..."
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={({ target: { value: v } }) => setPassword(v)}
                             />
 
                         </div>
 
                         <div className="lbtn-fp">
                             <button className=""
-                                onClick={() => {
-                                    loginUser(email, password)
-                                }}
+                                onClick={handleLogin}
                             >
                                 LOGIN
                             </button>
@@ -151,4 +147,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;
