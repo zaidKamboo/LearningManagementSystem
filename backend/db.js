@@ -12,5 +12,6 @@ async function connectToMongo() {
         console.log("connected")
     }
 }
-
-module.exports = connectToMongo
+// mongodb+srv://zaidkamboo100:<db_password>@cluster0.jn3eb.mongodb.net/
+// Ic9Xo3MKhqUd2ZnK
+module.exports = connectToMongo;
